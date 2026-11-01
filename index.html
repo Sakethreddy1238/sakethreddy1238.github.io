@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shubh Vivah</title>
+<meta name="description" content="Create elegant marriage biodatas and wedding invitation cards in minutes. Choose a design, add your details, and share on WhatsApp or print.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap">
+<style>
+/* Layout: a deep-green auspicious hero band over a cream editorial body;
+   gold is the single accent, carried on display type, rules, and the CTA. */
+:root{
+  --bg:#fbf6ec;        /* warm cream */
+  --surface:#fffdf8;   /* card */
+  --ink:#1b2a22;       /* deep green-black text */
+  --muted:#5d6b61;     /* green-grey */
+  --green:#0c3b2b;     /* brand green */
+  --green-deep:#072a1f;
+  --gold:#bb8f36;      /* brand gold (light-bg safe) */
+  --gold-bright:#e9c974;
+  --line:#ebe1c9;      /* hairline */
+  --petal:#e4b84f;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0b1510;
+  --surface:#13211a;
+  --ink:#f0e8d4;
+  --muted:#a7b5a9;
+  --green:#0c3b2b;
+  --green-deep:#061e16;
+  --gold:#e0b352;
+  --gold-bright:#f3d98b;
+  --line:#203029;
+  --petal:#d9ab45;
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#0b1510;
+  --surface:#13211a;
+  --ink:#f0e8d4;
+  --muted:#a7b5a9;
+  --green:#0c3b2b;
+  --green-deep:#061e16;
+  --gold:#e0b352;
+  --gold-bright:#f3d98b;
+  --line:#203029;
+  --petal:#d9ab45;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  font-weight:300;
+  line-height:1.65;
+  overflow-x:hidden;
+}
+img{max-width:100%}
+a{color:inherit}
+.wrap{
+  width:100%;
+  max-width:1020px;
+  margin-inline:auto;
+  padding-left:max(20px,env(safe-area-inset-left,0px));
+  padding-right:max(20px,env(safe-area-inset-right,0px));
+}
+h1,h2,h3{font-family:'Marcellus',Georgia,serif;font-weight:400;text-wrap:balance;line-height:1.15}
+.eyebrow{
+  font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;
+  color:var(--gold);font-weight:500;
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;
+  background:radial-gradient(130% 120% at 50% -10%,#114835 0%,var(--green) 42%,var(--green-deep) 100%);
+  color:#f7eed6;
+  text-align:center;
+  overflow:hidden;
+  padding-block:clamp(72px,16vw,128px);
+  isolation:isolate;
+}
+.hero::after{ /* soft vignette */
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(120% 90% at 50% 120%,transparent 55%,rgba(0,0,0,.35) 100%);
+}
+.mandala{
+  position:absolute;top:50%;left:50%;width:min(130vw,900px);aspect-ratio:1;
+  transform:translate(-50%,-50%);
+  z-index:-2;opacity:.14;color:var(--gold-bright);
+  animation:spin 80s linear infinite;
+}
+.mandala svg{width:100%;height:100%;display:block}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+
+.hero .eyebrow{color:var(--gold-bright);opacity:0;animation:rise .9s .1s ease-out forwards}
+.wordmark{
+  font-size:clamp(3.1rem,15vw,6.2rem);
+  letter-spacing:.01em;
+  margin-top:.18em;
+  background:linear-gradient(100deg,#d9b24b 0%,#f7e4a6 24%,#fffbe9 34%,#f7e4a6 44%,#d9b24b 70%);
+  background-size:220% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+  animation:shimmer 6s linear infinite, rise 1s .15s ease-out both;
+}
+@keyframes shimmer{to{background-position:220% 0}}
+.script{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(1.5rem,6.5vw,2.5rem);
+  color:var(--gold-bright);
+  margin-top:.1em;
+  opacity:0;animation:rise 1s .35s ease-out forwards;
+}
+.divider{
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  margin:22px auto 4px;color:var(--gold-bright);
+  opacity:0;animation:rise 1s .5s ease-out forwards;
+}
+.divider::before,.divider::after{content:"";height:1px;width:46px;background:linear-gradient(90deg,transparent,currentColor)}
+.divider::after{background:linear-gradient(90deg,currentColor,transparent)}
+.divider span{font-size:1rem;line-height:1}
+.lede{
+  max-width:33em;margin:18px auto 0;
+  color:#eadfca;font-size:clamp(1rem,2.6vw,1.12rem);
+  opacity:0;animation:rise 1s .6s ease-out forwards;
+}
+.cta-row{margin-top:34px;opacity:0;animation:rise 1s .75s ease-out forwards}
+.cta{
+  display:inline-flex;align-items:center;gap:.6em;
+  background:linear-gradient(180deg,#e6c168,#c79433);
+  color:#2a1c05;font-family:'Poppins';font-weight:600;font-size:1.02rem;
+  text-decoration:none;padding:15px 30px;border-radius:999px;
+  box-shadow:0 0 0 0 rgba(233,201,116,.55);
+  animation:glow 2.8s ease-in-out infinite;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.cta:hover{transform:translateY(-2px);box-shadow:0 14px 34px -10px rgba(233,201,116,.7)}
+.cta svg{width:19px;height:19px}
+@keyframes glow{
+  0%,100%{box-shadow:0 0 0 0 rgba(233,201,116,.5)}
+  50%{box-shadow:0 0 26px 3px rgba(233,201,116,.42)}
+}
+.trust{margin-top:16px;font-size:.84rem;letter-spacing:.02em;color:#cdbf9f;
+  opacity:0;animation:rise 1s .9s ease-out forwards}
+
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* petals */
+.petals{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.petal{position:absolute;top:-6%;width:12px;height:12px;border-radius:60% 0 60% 0;
+  background:var(--petal);opacity:.0;animation:fall linear infinite}
+@keyframes fall{
+  0%{transform:translateY(-10vh) rotate(0);opacity:0}
+  10%{opacity:.7}
+  90%{opacity:.5}
+  100%{transform:translateY(118vh) rotate(540deg);opacity:0}
+}
+
+/* ---------- SECTIONS ---------- */
+section{padding-block:clamp(56px,10vw,88px)}
+.section-head{text-align:center;max-width:36em;margin-inline:auto}
+.section-head h2{font-size:clamp(1.8rem,5.5vw,2.6rem);color:var(--ink)}
+.section-head p{color:var(--muted);margin-top:.5em}
+.rule{display:flex;justify-content:center;margin:14px auto 0;color:var(--gold)}
+.rule svg{width:120px;height:14px}
+
+/* features grid */
+.features{
+  margin-top:clamp(34px,6vw,54px);
+  display:grid;gap:16px;
+  grid-template-columns:repeat(3,1fr);
+}
+.card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:26px 22px;
+  min-width:0;
+  position:relative;overflow:hidden;
+  transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-bright));
+  transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+.card:hover{transform:translateY(-5px);box-shadow:0 20px 40px -22px rgba(12,59,43,.4);border-color:var(--gold)}
+.card:hover::before{transform:scaleX(1)}
+.ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;
+  background:color-mix(in srgb,var(--gold) 16%,transparent);color:var(--gold);margin-bottom:16px}
+.ic svg{width:24px;height:24px}
+.card h3{font-size:1.18rem;color:var(--ink)}
+.card p{color:var(--muted);font-size:.95rem;margin-top:.4em}
+
+/* steps */
+.steps-sec{background:
+  linear-gradient(0deg,color-mix(in srgb,var(--green) 6%,transparent),color-mix(in srgb,var(--green) 6%,transparent))}
+.steps{
+  margin-top:clamp(34px,6vw,54px);
+  display:grid;gap:18px;grid-template-columns:repeat(3,1fr);
+  counter-reset:step;
+}
+.step{text-align:center;padding:10px 14px;min-width:0}
+.step .num{font-family:'Marcellus',serif;font-size:2.6rem;color:var(--gold);line-height:1;
+  display:inline-block;position:relative}
+.step .num::after{content:"";display:block;width:34px;height:1px;background:var(--line);margin:14px auto 0}
+.step h3{font-size:1.16rem;margin-top:14px;color:var(--ink)}
+.step p{color:var(--muted);font-size:.93rem;margin-top:.3em}
+
+/* support / cta band */
+.band{
+  background:radial-gradient(120% 140% at 50% 0%,#114835,var(--green) 60%,var(--green-deep));
+  color:#f4ead2;text-align:center;border-radius:22px;
+  padding:clamp(40px,8vw,64px) 26px;margin-block:clamp(40px,8vw,70px);
+  position:relative;overflow:hidden;
+}
+.band .eyebrow{color:var(--gold-bright)}
+.band h2{color:#fff;font-size:clamp(1.7rem,5vw,2.4rem);margin-top:.3em}
+.band p{color:#e2d6ba;max-width:30em;margin:.7em auto 0}
+.mail{display:inline-block;margin-top:22px;font-size:1.1rem;color:var(--gold-bright);
+  border-bottom:1px solid color-mix(in srgb,var(--gold-bright) 50%,transparent);
+  padding-bottom:3px;user-select:all;font-weight:400}
+.band .cta{margin-top:26px;animation:none;box-shadow:0 10px 30px -12px rgba(233,201,116,.6)}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding-block:30px;text-align:center}
+footer .links{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+footer a{color:var(--muted);text-decoration:none;font-size:.92rem;transition:color .2s}
+footer a:hover{color:var(--gold)}
+footer .cr{color:var(--muted);font-size:.82rem;letter-spacing:.02em}
+
+/* reveal: progressive enhancement — visible by default, hidden only when JS is on */
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.js .reveal.in{opacity:1;transform:none}
+
+@media (max-width:760px){
+  .features{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr;gap:28px}
+}
+@media (max-width:460px){
+  .features{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .wordmark{-webkit-text-fill-color:transparent}
+  .js .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="mandala" aria-hidden="true"></div>
+  <div class="petals" aria-hidden="true" id="petals"></div>
+  <div class="wrap">
+    <p class="eyebrow">॥ Namaste ॥</p>
+    <h1 class="wordmark">Shubh Vivah</h1>
+    <p class="script">Biodata &amp; Wedding Card Maker</p>
+    <div class="divider"><span>✦</span></div>
+    <p class="lede">Create elegant marriage biodatas and wedding invitation cards in minutes — pick a design, add your details, and share on WhatsApp or print.</p>
+    <div class="cta-row">
+      <a class="cta" href="https://play.google.com/store/apps/details?id=com.sakethreddy.shubhvivah">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2 13.4 12 3.6 21.8c-.3-.2-.5-.6-.5-1V3.2c0-.4.2-.8.5-1Zm11 10.9 2.6 2.6-9.1 5.2 6.5-7.8Zm0-2.2L8.1 3.1l9.1 5.2-2.6 2.6Zm1.5 1.1 3.4-1.9c.6-.3.6-1.3 0-1.6l-2-1.1-1.4 1.4 1.4 1.5-1.4 1.4 0 .4Z"/></svg>
+        Get it on Google Play
+      </a>
+    </div>
+    <p class="trust">Free to download · 100+ designs · Works offline</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">What's inside</p>
+      <h2>Everything for the big day</h2>
+      <div class="rule"><svg viewBox="0 0 120 14" fill="none" stroke="currentColor"><path d="M2 7h40M78 7h40" stroke-width="1"/><path d="M60 2l4 5-4 5-4-5 4-5z" fill="currentColor" stroke="none"/></svg></div>
+      <p>A full toolkit to craft, polish, and share your biodata and wedding invites.</p>
+    </div>
+
+    <div class="features">
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+        <h3>100+ Designs</h3>
+        <p>Biodata and wedding card templates for every tradition and taste.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.3 3.1-6 7-6s7 2.7 7 6"/></svg></div>
+        <h3>Add Your Details</h3>
+        <p>Fill in your bio and photo, then see a live preview as you type.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3v5h5"/><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8l-5-5z"/><path d="M8 13h8M8 17h5"/></svg></div>
+        <h3>PDF &amp; Image Export</h3>
+        <p>Download in crisp, print-ready quality whenever you're happy with it.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20l1.4-4.1A8 8 0 1 1 9 19.3L4 20z"/></svg></div>
+        <h3>Share on WhatsApp</h3>
+        <p>Send your finished biodata to families and matchmakers in one tap.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+        <h3>Private by Design</h3>
+        <p>Works offline — your details stay on your device, never uploaded.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l2.4 5 5.6.5-4.2 3.7 1.3 5.5L12 20.3 6.9 22.7 8.2 17.2 4 13.5l5.6-.5L12 3z"/></svg></div>
+        <h3>Many Traditions</h3>
+        <p>Hindu, Muslim and more — with matching styles and motifs for each.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="steps-sec">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">How it works</p>
+      <h2>Ready in three steps</h2>
+      <div class="rule"><svg viewBox="0 0 120 14" fill="none" stroke="currentColor"><path d="M2 7h40M78 7h40" stroke-width="1"/><path d="M60 2l4 5-4 5-4-5 4-5z" fill="currentColor" stroke="none"/></svg></div>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="num">01</div><h3>Choose a design</h3><p>Browse the gallery and tap the template you love.</p></div>
+      <div class="step reveal"><div class="num">02</div><h3>Add your details</h3><p>Enter your information and add a photo with a live preview.</p></div>
+      <div class="step reveal"><div class="num">03</div><h3>Export &amp; share</h3><p>Save as PDF or image, then share or print it instantly.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="band reveal">
+    <p class="eyebrow">We're here to help</p>
+    <h2>Questions or feedback?</h2>
+    <p>We read every message and love hearing how Shubh Vivah helped with your big day.</p>
+    <div><span class="mail">shubhvivahsupport@gmail.com</span></div>
+    <div>
+      <a class="cta" href="https://play.google.com/store/apps/details?id=com.sakethreddy.shubhvivah">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2 13.4 12 3.6 21.8c-.3-.2-.5-.6-.5-1V3.2c0-.4.2-.8.5-1Zm11 10.9 2.6 2.6-9.1 5.2 6.5-7.8Zm0-2.2L8.1 3.1l9.1 5.2-2.6 2.6Zm1.5 1.1 3.4-1.9c.6-.3.6-1.3 0-1.6l-2-1.1-1.4 1.4 1.4 1.5-1.4 1.4 0 .4Z"/></svg>
+        Download the app
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="https://play.google.com/store/apps/details?id=com.sakethreddy.shubhvivah">Google Play</a>
+      <a href="https://play.google.com/store/apps/details?id=com.sakethreddy.shubhvivah">Install</a>
+      <span style="color:var(--muted);font-size:.92rem">shubhvivahsupport@gmail.com</span>
+    </div>
+    <p class="cr">© 2026 Shubh Vivah · Biodata &amp; Wedding Card Maker · Made with care in India</p>
+  </div>
+</footer>
+
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  // Mandala (generated so the markup stays clean)
+  var m = document.querySelector('.mandala');
+  if(m){
+    var ns='http://www.w3.org/2000/svg', svg=document.createElementNS(ns,'svg');
+    svg.setAttribute('viewBox','0 0 200 200');
+    function ring(r,n,rot,rx,ry){
+      for(var i=0;i<n;i++){
+        var a=(i/n)*360+rot, p=document.createElementNS(ns,'ellipse');
+        p.setAttribute('cx','100');p.setAttribute('cy',100-r);
+        p.setAttribute('rx',rx);p.setAttribute('ry',ry);
+        p.setAttribute('fill','none');p.setAttribute('stroke','currentColor');p.setAttribute('stroke-width','1');
+        p.setAttribute('transform','rotate('+a+' 100 100)');
+        svg.appendChild(p);
+      }
+    }
+    [[0,0,0,0,0]].length;
+    ring(58,24,0,4,16); ring(40,18,10,5,13); ring(24,12,0,5,10);
+    var c=document.createElementNS(ns,'circle');
+    c.setAttribute('cx','100');c.setAttribute('cy','100');c.setAttribute('r','14');
+    c.setAttribute('fill','none');c.setAttribute('stroke','currentColor');c.setAttribute('stroke-width','1');
+    svg.appendChild(c);
+    m.appendChild(svg);
+  }
+
+  // Petals
+  var box=document.getElementById('petals');
+  if(box && !reduce){
+    var N=14;
+    for(var i=0;i<N;i++){
+      var el=document.createElement('span');el.className='petal';
+      var size=7+Math.random()*10;
+      el.style.left=(Math.random()*100)+'%';
+      el.style.width=el.style.height=size+'px';
+      el.style.animationDuration=(9+Math.random()*9)+'s';
+      el.style.animationDelay=(-Math.random()*12)+'s';
+      el.style.opacity=(0.35+Math.random()*0.4).toFixed(2);
+      box.appendChild(el);
+    }
+  }
+
+  // Scroll reveal
+  var items=document.querySelectorAll('.reveal');
+  if(reduce || !('IntersectionObserver' in window)){
+    items.forEach(function(x){x.classList.add('in')});
+  }else{
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{threshold:.15});
+    items.forEach(function(x,idx){ x.style.transitionDelay=((idx%3)*0.08)+'s'; io.observe(x); });
+  }
+})();
+</script>
+</body>
+</html>
